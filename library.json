@@ -1,12 +1,47 @@
 {
-  "name": "esp_littlefs",
-  "version": "1.0.0",
+  "name": "littlefs",
+  "version": "2.9.3",
+  "description": "A little fail-safe filesystem designed for microcontrollers",
+  "keywords": "filesystem, embedded, microcontroller, flash, storage",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MineModric109/littlefs.git"
+  },
+  "authors": [
+    {
+      "name": "Christopher Haster",
+      "email": "chaster@utexas.edu",
+      "url": "https://github.com/geky"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/littlefs-project/littlefs",
+  "export": {
+    "include": [
+      "lfs.h",
+      "lfs_util.h"
+    ]
+  },
   "build": {
     "srcFilter": [
-      "+<*>",
+      "+<lfs.c>",
+      "+<lfs_util.c>",
+      "+<lfs.h>",
+      "+<lfs_util.h>",
+      "-<runners/>",
+      "-<bd/>",
+      "-<tests/>",
       "-<test/>",
       "-<examples/>",
-      "-<docs/>"
+      "-<docs/>",
+      "-<scripts/>",
+      "-<.github/>"
+    ],
+    "flags": [
+      "-D LFS_NO_DEBUG",
+      "-D LFS_NO_WARN"
     ]
-  }
+  },
+  "frameworks": ["arduino", "espidf"],
+  "platforms": ["espressif32", "espressif8266"]
 }
