@@ -1,0 +1,12 @@
+{
+  "name": "esp_littlefs",
+  "version": "1.0.0",
+  "build": {
+    "srcFilter": [
+      "+<*>",
+      "-<test/>",
+      "-<examples/>",
+      "-<docs/>"
+    ]
+  }
+}
